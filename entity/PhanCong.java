@@ -6,6 +6,9 @@ public class PhanCong {
     private LaiXe laiXe;
     private ChiTietPhanCong[] ChiTietPhanCong;
 
+    public PhanCong() {
+    }
+
     public PhanCong(LaiXe laiXe, entity.ChiTietPhanCong[] chiTietPhanCong) {
         this.laiXe = laiXe;
         ChiTietPhanCong = chiTietPhanCong;
