@@ -80,4 +80,5 @@ public abstract class LaiXe {
     }
 
 
+    public abstract void InpuInfo();
 }
