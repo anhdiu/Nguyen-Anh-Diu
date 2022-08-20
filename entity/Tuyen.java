@@ -1,7 +1,9 @@
 package entity;
 
-public class Tuyen {
-    int maTuyen = 10000;
+import java.util.Scanner;
+
+public abstract class Tuyen {
+    int maTuyen = 100;
     double khoangCach;
     int soDiemDung;
 
@@ -9,6 +11,10 @@ public class Tuyen {
         this.maTuyen = maTuyen;
         this.khoangCach = khoangCach;
         this.soDiemDung = soDiemDung;
+    }
+
+    public Tuyen() {
+
     }
 
     public int maTuyen() {
@@ -43,5 +49,24 @@ public class Tuyen {
                 ", soDiemDung=" + soDiemDung +
                 '}';
     }
+
+
+
+
+    public void InputInfo() {
+        this.maTuyen = maTuyen++;
+        System.out.print("Nhập khoảng cách : ");
+        this.khoangCach = new Scanner(System.in).nextInt();
+        System.out.print("Nhập số điểm dừng: ");
+        this.soDiemDung = new Scanner(System.in).nextInt();
+
+    }
+
+    public abstract void InpuInfo();
+
+    public abstract void InputTrinhDo();
+
+    public abstract int compareTo(LaiXe laiXe);
+
 }
 
