@@ -1,4 +1,6 @@
-package entity;
+package nhap;
+
+import entity.LaiXe;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,6 @@
-package entity;
+package nhap;
+
+import entity.Tuyen;
 
 import java.util.ArrayList;
 

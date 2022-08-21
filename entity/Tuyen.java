@@ -62,6 +62,7 @@ public abstract class Tuyen {
 
     }
 
+
     public abstract void InpuInfo();
 
     public abstract void InputTrinhDo();

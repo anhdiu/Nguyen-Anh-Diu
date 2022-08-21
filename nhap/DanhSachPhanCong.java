@@ -1,4 +1,6 @@
-package entity;
+package nhap;
+
+import entity.PhanCong;
 
 import java.util.ArrayList;
 

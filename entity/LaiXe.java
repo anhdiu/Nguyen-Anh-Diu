@@ -1,15 +1,19 @@
 package entity;
 
-public abstract class LaiXe {
+import constant.TrinhDo;
+
+import java.util.Scanner;
+
+public class LaiXe {
     private static int maLaiXe_Id = 10000;
     private String hoTen;
-    private String DiaChi;
+    private String diaChi;
     private int sdt;
     private String trinhDo;
 
     public LaiXe(int maLaiXe, String hoTen, String diaChi, int sdt, String trinhDo) {
         this.hoTen = hoTen;
-        DiaChi = diaChi;
+        diaChi = diaChi;
         this.sdt = sdt;
         this.trinhDo = trinhDo;
     }
@@ -26,8 +30,6 @@ public abstract class LaiXe {
         LaiXe.maLaiXe_Id = maLaiXe_Id;
     }
 
-    protected static void inputInfo() {
-    }
 
     public String hoTen() {
         return hoTen;
@@ -38,11 +40,11 @@ public abstract class LaiXe {
     }
 
     public String DiaChi() {
-        return DiaChi;
+        return diaChi;
     }
 
     public void setDiaChi(String diaChi) {
-        DiaChi = diaChi;
+        diaChi = diaChi;
     }
 
     public int sdt() {
@@ -65,20 +67,82 @@ public abstract class LaiXe {
     public String toString() {
         return "LaiXe{" +
                 "hoTen='" + hoTen + '\'' +
-                ", DiaChi='" + DiaChi + '\'' +
+                ", DiaChi='" + diaChi + '\'' +
                 ", sdt=" + sdt +
                 ", trinhDo='" + trinhDo + '\'' +
                 '}';
     }
+
+    public void inputInfo() {
+        this.maLaiXe_Id = maLaiXe_Id++;
+        System.out.println("Nhập họ tên lái xe:");
+        this.hoTen = new Scanner(System.in).nextLine();
+        System.out.println("Nhập địa chỉ:");
+        this.diaChi = new Scanner(System.in).nextLine();
+        System.out.println("Nhập sdt:");
+        this.sdt = new Scanner(System.in).nextInt();
+        System.out.println("Nhập trình độ:");
+        this.themTrinhDo();
+
+
+    }
+
+    private void themTrinhDo() {
+        System.out.println("Nhập vào lựa chọn dưới đây");
+        System.out.println("1. Loại A");
+        System.out.println("2. Loại B");
+        System.out.println("3. Loại C");
+        System.out.println("4. Loại D");
+        System.out.println("5. Loại E");
+        System.out.println("6. Loại F");
+        int trinhDo = 0;
+        do {
+            trinhDo = new Scanner(System.in).nextInt();
+            if (trinhDo >= 1 && trinhDo <= 6) {
+                break;
+            }
+            System.out.println("Lựa chọn không hợp lệ, vui lòng lựa chọn lại");
+        } while (true);
+        switch (trinhDo) {
+            case 1:
+                this.setTrinhDo(String.valueOf(TrinhDo.LOAI_A));
+            case 2:
+                this.setTrinhDo(String.valueOf(TrinhDo.LOAI_B));
+            case 3:
+                this.setTrinhDo(String.valueOf(TrinhDo.LOAI_C));
+            case 4:
+                this.setTrinhDo(String.valueOf(TrinhDo.LOAI_D));
+            case 5:
+                this.setTrinhDo(String.valueOf(TrinhDo.LOAI_E));
+            case 6:
+                this.setTrinhDo(String.valueOf(TrinhDo.LOAI_F));
+                break;
+        }
+    }
+
     public int CompareTo(LaiXe laiXe) {
-        if(this.maLaiXe_Id>laiXe.maLaiXe_Id()) {
+        if (this.maLaiXe_Id > laiXe.maLaiXe_Id()) {
             return 1;
-        }else if (this.maLaiXe_Id<laiXe.maLaiXe_Id()) {
+        } else if (this.maLaiXe_Id < laiXe.maLaiXe_Id()) {
             return -1;
         }
         return 0;
     }
 
+    public void themLaiXe() {
+        this.maLaiXe_Id = maLaiXe_Id++;
+        System.out.println("Nhập họ tên lái xe:");
+        this.hoTen = new Scanner(System.in).nextLine();
+        System.out.println("Nhập địa chỉ:");
+        this.diaChi = new Scanner(System.in).nextLine();
+        System.out.println("Nhập sdt:");
+        this.sdt = new Scanner(System.in).nextInt();
+        System.out.println("Nhập trình độ:");
+        this.themTrinhDo();
 
-    public abstract void InpuInfo();
+    }
 }
+
+
+
+
